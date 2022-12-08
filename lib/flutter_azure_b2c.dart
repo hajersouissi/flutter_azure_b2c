@@ -144,10 +144,10 @@ class AzureB2C {
   /// See also:
   ///   * [handleRedirectFuture]
   ///
-  static Future<String> init(String configFileName) async {
+  static Future<String> init(String configFile) async {
     _channel.setMethodCallHandler(_methodCallHandler);
     var tag = GUIDGen.generate();
-    var args = {"tag": tag, "configFile": configFileName};
+    var args = {"tag": tag, "configFile": configFile};
 
     await _channel.invokeMethod('init', args);
     return tag;

@@ -72,7 +72,7 @@ class B2CProviderWeb {
   /// information.
   ///
   /// The [tag] argument is used to distinguish which invocation of the init
-  /// generated the return callback. The [configFileName] argument specifies
+  /// generated the return callback. The [configFile] argument specifies
   /// the name of the json configuration file in the web/assets folder.
   ///
   /// Returns a [Future] callable from the [AzureB2C] plugin.
@@ -90,11 +90,11 @@ class B2CProviderWeb {
   ///   [B2COperationSource.POLICY_TRIGGER_INTERACTIVE] if the user has
   ///   requested a password change.
   ///
-  Future init(String tag, String configFileName) async {
+  Future init(String tag, String configFile) async {
     initializeDateFormatting();
 
     try {
-      var conf = json.decode(await rootBundle.loadString(configFileName));
+      var conf = json.decode(configFile);
 
       BrowserCacheLocation cache = BrowserCacheLocation.sessionStorage;
       if (conf.containsKey("cache_location")) {

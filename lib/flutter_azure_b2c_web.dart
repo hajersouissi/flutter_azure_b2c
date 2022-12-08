@@ -67,11 +67,9 @@ class B2CPluginWeb {
         var args = call.arguments;
 
         String tag = args["tag"];
-        String configFileName = args["configFile"];
-        if (!configFileName.toLowerCase().endsWith(".json"))
-          configFileName = configFileName + ".json";
+        String configFile= args["configFile"];
 
-        _provider.init(tag, configFileName);
+        _provider.init(tag, configFile);
         return;
 
       case 'policyTriggerInteractive':
